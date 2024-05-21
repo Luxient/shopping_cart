@@ -13,19 +13,19 @@ from cart.cart import (
 class TestShoppingCart(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        # Loading test data from a JSON file (assuming it's named 'data.json' and in the same directory)
+        """Loading test data from a JSON file (assuming it's named 'data.json' and in the same directory)"""
         with open("data.json", "r") as file:
             cls.shopping_baskets = json.load(file)
 
     def test_get_customer_baskets(self):
-        # Test retrieving baskets for a specific customer
+        """Test retrieving baskets for a specific customer"""
         baskets = get_customer_baskets("tshepo@umuzi.org", self.shopping_baskets)
         self.assertEqual(
             len(baskets), 4
         )  # Assuming 'tshepo@umuzi.org' has 4 baskets in the test data
 
     def test_get_all_customers(self):
-        # Test retrieving all unique customer emails
+        """Test retrieving all unique customer emails"""
         customers = get_all_customers(self.shopping_baskets)
         self.assertIn("tshepo@umuzi.org", customers)
         self.assertIn("sally@umuzi.org", customers)
@@ -35,7 +35,7 @@ class TestShoppingCart(unittest.TestCase):
         self.assertEqual(len(customers), 5)  # Total unique customers
 
     def test_get_required_stock(self):
-        # Test calculating required stock for delivery
+        """Test calculating required stock for delivery"""
         stock = get_required_stock(self.shopping_baskets)
         self.assertTrue(
             any(
@@ -45,12 +45,12 @@ class TestShoppingCart(unittest.TestCase):
         )
 
     def test_get_total_spent(self):
-        # Test calculating total spent by a specific customer
+        """Test calculating total spent by a specific customer"""
         total_spent = get_total_spent("sally@umuzi.org", self.shopping_baskets)
         self.assertEqual(total_spent, 3589)  # Sum up the totals from the JSON provided
 
     def test_get_top_customers(self):
-        # Test retrieving top customers sorted by total amount spent
+        """Test retrieving top customers sorted by total amount spent"""
         top_customers = get_top_customers(self.shopping_baskets)
         self.assertTrue(
             top_customers[0]["email"] == "sally@umuzi.org"
@@ -58,7 +58,7 @@ class TestShoppingCart(unittest.TestCase):
         )
 
     def test_get_customers_with_open_baskets(self):
-        # Test getting customers with open baskets
+        """Test getting customers with open baskets"""
         open_customers = get_customers_with_open_baskets(self.shopping_baskets)
         self.assertIn("mpho@umuzi.org", open_customers)
         self.assertEqual(
