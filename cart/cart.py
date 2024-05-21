@@ -1,16 +1,3 @@
-PAID = "PAID"
-DELIVERED = "DELIVERED"
-OPEN = "OPEN"
-
-
-def filter_baskets_by_status(shopping_baskets, status):
-    return [basket for basket in shopping_baskets if basket["status"] == status]
-
-
-def calculate_total(items):
-    return sum(item["price"] * item["quantity"] for item in items)
-
-
 def get_customer_baskets(email, shopping_baskets):
     if not shopping_baskets or not isinstance(shopping_baskets, list):
         return []
@@ -31,7 +18,7 @@ def get_required_stock(shopping_baskets):
         return []
     required_stock = {}
     for basket in shopping_baskets:
-        if basket.get("status") == PAID:
+        if basket.get("status") == "PAID":
             for item in basket.get("items", []):
                 if "name" in item and "quantity" in item:
                     required_stock[item["name"]] = (
@@ -44,21 +31,28 @@ def get_required_stock(shopping_baskets):
 
 
 def get_total_spent(email, shopping_baskets):
+    if not shopping_baskets or not isinstance(shopping_baskets, list):
+        return 0
     customer_baskets = get_customer_baskets(email, shopping_baskets)
     return sum(
-        calculate_total(basket["items"])
+        item["price"] * item["quantity"]
         for basket in customer_baskets
-        if basket["status"] in [PAID, DELIVERED]
+        if basket["status"] in ["PAID", "DELIVERED"]
+        for item in basket["items"]
     )
 
 
 def get_top_customers(shopping_baskets):
+    if not shopping_baskets or not isinstance(shopping_baskets, list):
+        return []
     customer_spending = {}
     for basket in shopping_baskets:
-        if basket["status"] in [PAID, DELIVERED]:
-            customer_spending[basket["email"]] = customer_spending.get(
-                basket["email"], 0
-            ) + calculate_total(basket["items"])
+        if basket["status"] in ["PAID", "DELIVERED"]:
+            email = basket["email"]
+            if email not in customer_spending:
+                customer_spending[email] = 0
+            for item in basket["items"]:
+                customer_spending[email] += item["price"] * item["quantity"]
     top_customers = [
         {"email": email, "total": total} for email, total in customer_spending.items()
     ]
@@ -67,7 +61,10 @@ def get_top_customers(shopping_baskets):
 
 
 def get_customers_with_open_baskets(shopping_baskets):
+    """Get a list of customers who have open baskets."""
+    if not shopping_baskets or not isinstance(shopping_baskets, list):
+        return []
     open_customers = {
-        basket["email"] for basket in filter_baskets_by_status(shopping_baskets, OPEN)
+        basket["email"] for basket in shopping_baskets if basket["status"] == "OPEN"
     }
     return sorted(open_customers)
