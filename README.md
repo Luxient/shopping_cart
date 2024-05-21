@@ -1,6 +1,3 @@
-Shopping cart calculations (705)
-For raw project instructions see: http://syllabus.africacode.net/projects/understanding-loops/
-
 # Shopping Cart Calculations
 
 This project implements various functionalities for managing shopping cart data for an online shopping startup. The project includes functions to retrieve customer-specific data, calculate totals, and determine stock requirements based on the provided shopping basket data.
