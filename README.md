@@ -20,12 +20,12 @@ This project implements various functionalities for managing shopping cart data 
 
 1. Clone the repository (replace `your-username` with your GitHub username if different):
     ```sh
-    git clone https://github.com/your-username/shopping_cart.git
+    git clone git@github.com:Luxient/shopping_cart.git
     ```
 
 2. Navigate to the project directory:
     ```sh
-    cd shopping_cart
+    cd shopping_cart.git
     ```
 
 ### Usage
