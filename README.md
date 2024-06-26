@@ -47,7 +47,7 @@ from shopping_cart import (
 # Sample data
 shopping_baskets = [
     {
-        "email": "tshepo@umuzi.org",
+        "email": "john@example.com",
         "status": "OPEN",
         "items": [
             {"name": "hamster", "quantity": 2, "price": 20},
@@ -58,10 +58,10 @@ shopping_baskets = [
     },
 ]
 
-customer_baskets = get_customer_baskets("tshepo@umuzi.org", shopping_baskets)
+customer_baskets = get_customer_baskets("john@example.com", shopping_baskets)
 all_customers = get_all_customers(shopping_baskets)
 required_stock = get_required_stock(shopping_baskets)
-total_spent = get_total_spent("tshepo@umuzi.org", shopping_baskets)
+total_spent = get_total_spent("john@example.com", shopping_baskets)
 top_customers = get_top_customers(shopping_baskets)
 customers_with_open_baskets = get_customers_with_open_baskets(shopping_baskets)
 
