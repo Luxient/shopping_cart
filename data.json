@@ -1,6 +1,6 @@
 [
     {
-        "email": "tshepo@umuzi.org",
+        "email": "john@example.com",
         "status": "OPEN",
         "items": [
             {
@@ -26,7 +26,7 @@
         ]
     },
     {
-        "email": "tshepo@umuzi.org",
+        "email": "john@example.com",
         "status": "PAID",
         "items": [
             {
@@ -47,7 +47,7 @@
         ]
     },
     {
-        "email": "tshepo@umuzi.org",
+        "email": "john@example.com",
         "status": "DELIVERED",
         "items": [
             {
@@ -63,7 +63,7 @@
         ]
     },
     {
-        "email": "tshepo@umuzi.org",
+        "email": "john@example.com",
         "status": "DELIVERED",
         "items": [
             {
@@ -73,9 +73,8 @@
             }
         ]
     },
-
     {
-        "email": "sally@umuzi.org",
+        "email": "mary@example.com",
         "status": "DELIVERED",
         "items": [
             {
@@ -95,9 +94,8 @@
             }
         ]
     },
-
     {
-        "email": "sally@umuzi.org",
+        "email": "mary@example.com",
         "status": "PAID",
         "items": [
             {
@@ -117,9 +115,8 @@
             }
         ]
     },
-
     {
-        "email": "sally@umuzi.org",
+        "email": "mary@example.com",
         "status": "DELIVERED",
         "items": [
             {
@@ -129,9 +126,8 @@
             }
         ]
     },
-
     {
-        "email": "mpho@umuzi.org",
+        "email": "jane@example.com",
         "status": "OPEN",
         "items": [
             {
@@ -149,12 +145,10 @@
                 "quantity": 2,
                 "price": 600
             }
-
         ]
     },
-
     {
-        "email": "ryan@umuzi.org",
+        "email": "paul@example.com",
         "status": "PAID",
         "items": [
             {
@@ -170,7 +164,7 @@
         ]
     },
     {
-        "email" : "mo@umuzi.org",
+        "email": "anna@example.com",
         "status": "DELIVERED",
         "items": [
             {
@@ -186,14 +180,12 @@
         ]
     },
     {
-        "email" : "mo@umuzi.org",
+        "email": "anna@example.com",
         "status": "DELIVERED",
-        "items": [
-
-        ]
+        "items": []
     },
     {
-        "email" : "mo@umuzi.org",
+        "email": "anna@example.com",
         "status": "DELIVERED",
         "items": [
             {
